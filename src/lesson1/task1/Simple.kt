@@ -1,6 +1,9 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson1.task1
 
+import lesson2.task2.pointInsideCircle
+import kotlin.concurrent.timerTask
 import kotlin.math.*
 
 /**
@@ -24,6 +27,8 @@ fun sqr(x: Double) = x * x
  */
 fun discriminant(a: Double, b: Double, c: Double) = sqr(b) - 4 * a * c
 
+
+
 /**
  * Пример
  *
@@ -46,13 +51,27 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
 
 /**
  * Пример главной функции
- */
+
 fun main(args: Array<String>) {
-    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
-    println("Root product: $x1x2")
+val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
+println("Root product: $x1x2")
+}
+ */
+
+fun main(args: Array<String>) {
+    val y111: Int = 7
+    val result = sqr(y111)
+    println("$y111 * $y111 = $result")
+    val tt = y111.toString() + " * " + result.toString()
+    println(tt)
+    print("Угол в радианах - "); println(angleInRadian(36, 14, 35))
+    val thrdVal = 4423462;
+    print("Третья цифра от $thrdVal - "); println(thirdDigit(thrdVal))
+    val numWhichWillBeReversed = 431
+    print("Число $numWhichWillBeReversed в обратной последовательности- "); println(numberRevert(numWhichWillBeReversed))
 }
 
-/**
+/** `
  * Тривиальная
  *
  * Пользователь задает время в часах, минутах и секундах, например, 8:20:35.
@@ -75,7 +94,13 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
+    val ress:Double = (deg + min / 60 + sec / 3600).toDouble()
+    println(ress)
+    val minD:Double= (min.toDouble()/60)
+    println(minD)
+    return ((deg.toDouble() + min.toDouble() / 60 + sec.toDouble() / 3600) * PI / 180)
+}
 
 /**
  * Тривиальная
@@ -91,8 +116,9 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit(number: Int): Int = TODO()
-
+fun thirdDigit(number: Int): Int {
+    return (number/100%10)
+}
 /**
  * Простая
  *
@@ -113,8 +139,11 @@ fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
 
 /**
  * Простая
- *
- * Пользователь задает целое трехзначное число (например, 478).
- * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
+ *сло (например, 478).
+ * Необходимо вывести число, полученное из
+ * Пользователь задает целое трехзначное чизаданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int = TODO()
+fun numberRevert(number: Int): Int {
+    var str = number.toString().reversed().toInt()
+    return str
+}
