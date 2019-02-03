@@ -62,6 +62,6 @@ fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
 }
 
 fun main(args: Array<String>) {
-    if (brickPasses (2,5,6,5,5)==true) println("yes")
+    if (brickPasses (2,5,6,5,5)==true) println("yess")
     else println("no")
 }
